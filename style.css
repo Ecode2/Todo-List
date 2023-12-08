@@ -1,0 +1,194 @@
+/* || PAGE RESET */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* || VARIABLE INITIALIZER */
+:root {
+    /* FONT PROPERTIES */
+    --FONT-FAMILY: monospace;
+    --FONT-SIZE: 1rem;
+    --TITLE-FONT: bolder 2rem monospace;
+
+    /* COLORS */
+    --BGCOLOR:  color-mix(in srgb,white 85%, whitesmoke 15%);
+    --BTN-BGCOLOR: limegreen;
+
+    /* WIDTH  AND HEIGHT */
+    --HDR-MIN-WIDTH: 270px;
+    --HDR-MAX-WIDTH: 400px;
+    --HDR-MIN-HIGHT: 450px;
+    --HDR-MAX-HEIGHT: 550px;
+
+    /* BORDERS AND SHADOWS */
+    --SHADOW: 8px 8px 15px 10px hwb(0 45% 55% / 0.281);
+    --RADIUS: 10px;
+    --BTN-RADIUS: 5px;
+    --TITLE-SHADOW: 5px 5px 15px 10px hwb(0 45% 55% / 0.281);
+    --INPUT-SHADOW: inset 3px 3px 11px hwb(0 45% 55% / 0.281);
+    --BTN-SHADOW: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    --BORDER: none;
+
+    /* STANDARD MARGIN */
+    --MARGIN: 15px;
+    --TOP-BOTTOM: var(--MARGIN) 0 var(--MARGIN) 0;
+    --PADDING: 12px;
+    --BTN-PADDING: 9px 22px;
+
+}
+
+/* || TAG DEFAULTS */
+body {
+    display: flex;
+    justify-content: center;
+    background-color: var(--BGCOLOR);
+}
+
+/* || MAIN SECTION */
+.main {
+    font-family: var(--FONT-Family);
+    margin-top: 8vh;
+    min-width: var(--HDR-MIN-WIDTH);
+    width: 80vw;
+    max-width: var(--HDR-MAX-WIDTH);
+    min-height: var(--HDR-MIN-HIGHT);
+    max-height: var(--HDR-MAX-HEIGHT);
+    background-color: var(--BGCOLOR);
+    box-shadow: var(--SHADOW);
+    border-radius: var(--RADIUS);
+}
+
+/* || FORM CONTAINER */
+    .main-title {
+        margin: var(--MARGIN);
+        background-color: var(--BGCOLOR);
+        border-radius: var(--RADIUS);
+        box-shadow: var(--TITLE-SHADOW);
+    }
+
+/* FORM */
+    .task-form {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        padding: var(--TOP-BOTTOM);
+    }
+
+    .task-form  #task__title {
+        font: var(--TITLE-FONT);
+        color: var(--BTN-BGCOLOR);
+    }
+
+    .task-form #task__input {
+        width: 90%;
+        height: 9vh;
+        margin: var(--TOP-BOTTOM);
+        border-radius: calc(var(--RADIUS) - 2px);
+        border: var(--BORDER);
+        box-shadow: var(--INPUT-SHADOW);
+        padding: var(--PADDING);
+    }
+    .task-form #task__input:focus {
+        outline: var(--BORDER);
+    }
+
+    .task-form #task__submit {
+        padding: var(--BTN-PADDING);
+        border: var(--BORDER);
+        border-radius: var(--BTN-RADIUS);
+        box-shadow: var(--BTN-SHADOW);
+        background-color: var(--BTN-BGCOLOR);
+        color: var(--BGCOLOR);
+        font-family: var(--FONT-FAMILY);
+        font-size: var(--FONT-SIZE);
+    }
+    .task-form #task__submit:hover {
+        cursor: pointer;
+        transform: translateY(-3px);
+        transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+/* || TASK LIST */
+    .main-list {
+        margin: var(--MARGIN);
+        max-height: 56.55%;
+        overflow: auto;
+    }
+
+    .task-list {
+        list-style: none;
+        display: flex;
+        flex-flow: column wrap;
+        margin-top: calc(var(--MARGIN) * 2);
+    }
+
+    .task-list li {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        border-radius: calc(var(--RADIUS) - 5px);
+        margin: 0 5px calc(var(--PADDING) - 3px) 5px;
+        box-shadow: var(--BTN-SHADOW);
+        padding: calc(var(--PADDING) - 2px);
+    }
+
+/* Task completion */
+    .completed {
+        text-decoration: line-through;
+    }
+
+
+/* || BUTTON STYLE */
+    .btn {
+    background-color: var(--BGCOLOR);
+    border: var(--BORDER);
+    padding: var(--PADDING);
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: var(--BTN-RADIUS);
+    box-shadow: var(--BTN-SHADOW);
+    transform: translateY(-5px);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+   }
+   .btn:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+   }
+   .btn:active {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transform: translateY(1px);
+   }
+
+/* List Button */
+    .btn-div {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .check-btn {
+        padding: calc(var(--PADDING) / 1.25);
+        max-height: 2rem;
+        margin-top: 8px;
+    }
+    .check-btn:hover {
+        background-color: var(--BTN-BGCOLOR);
+    }
+    .checked {
+        background-color: var(--BTN-BGCOLOR);
+    }
+
+    .del-btn {
+        padding: calc(var(--PADDING) / 1.25);
+        max-height: 2rem;
+        margin-top: 8px;
+    }
+    .del-btn:hover {
+        background-color: crimson;
+    }

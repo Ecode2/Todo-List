@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ToDo List</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  
+  </head>
+
+  <body>
+
+    <main class="main">
+
+      <article class="main-title">
+
+        <form class="task-form">
+          <label for="task__input" id="task__title">Todo</label>
+          <input type="text" name="task" id="task__input" required placeholder="What are you to do.."/>
+          <button type="submit" id="task__submit", onclick="addTask()">Add</button>
+        </form>
+
+      </article>
+
+      <article class="main-list">
+
+        <ul class="task-list" id="tasks">
+          <!-- task list goes here -->
+        </ul>
+
+      </article>
+
+    </main>
+
+    <script src="index.js"></script>
+    
+  </body>
+</html>
