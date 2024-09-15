@@ -5,13 +5,15 @@ const urlsToCache = [
     "style.css",
     "/index.js",
     "/icons/favicon-32x32.png",
+    "/icons/favicon-173x173.png",
+    "/icons/favicon-600x600.png",
     "/icons/favicon.png"
 ];
 
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME)
-            .then((cache) => cache.addAll(urlsToCache))
+            .then((cache) => {return cache.addAll(urlsToCache)})
     );
 });
 
