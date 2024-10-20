@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
   <head>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color", content="#3f51b5">
+    <meta name="theme-color" content="#3f51b5">
     <title>ToDo List</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
@@ -19,10 +19,12 @@
 
       <article class="main-title">
 
+        <button id="install-button" class="btn install-btn" style="display: none">Install</button>
+
         <form class="task-form">
-          <label for="task__input" id="task__title">Todo</label>
+          <label for="task__input" id="task__title">Todo List</label>
           <input type="text" name="task" id="task__input" required placeholder="What are you to do.."/>
-          <button type="submit" id="task__submit", onclick="addTask()">Add</button>
+          <button type="submit" id="task__submit" onclick="addTask()">Add</button>
         </form>
 
       </article>
@@ -35,9 +37,36 @@
 
       </article>
 
+
     </main>
 
     <script src="index.js"></script>
+    <script>
+      let deferredPrompt;
+      const installButton = document.getElementById('install-button');
+
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        installButton.style.display = 'block';
+
+        installButton.addEventListener('click', () => {
+
+          /* installButton.classList.remove("btn", "install-btn");
+          installButton.classList.add("hidden"); */
+
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+              console.log('User accepted the install prompt');
+            } else {
+              console.log('User dismissed the install prompt');
+            }
+            deferredPrompt = null;
+          });
+        });
+      });
+    </script>
     
   </body>
 </html>

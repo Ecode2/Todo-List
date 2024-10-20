@@ -60,6 +60,10 @@ body {
     border-radius: var(--RADIUS);
 }
 
+.hidden {
+    display: none;
+}
+
 /* || FORM CONTAINER */
     .main-title {
         margin: var(--MARGIN);
@@ -191,4 +195,12 @@ body {
     }
     .del-btn:hover {
         background-color: crimson;
+    }
+
+    .install-btn {
+        padding: calc(var(--PADDING) / 1.3);
+        max-height: 2rem;
+    }
+    .install-btn:hover {
+        background-color: var(--BTN-BGCOLOR);
     }

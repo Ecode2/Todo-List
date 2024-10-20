@@ -1,4 +1,4 @@
-const CACHE_NAME = "todo-list-cache-v1";
+/* const CACHE_NAME = "todo-list-cache-v1";
 const urlsToCache = [
     "/",
     "/index.html",
@@ -36,4 +36,12 @@ self.addEventListener('activate', (event) => {
             })
         ))
     );
-});
+}); */
+
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.0.2/workbox-sw.js');
+
+
+workbox.routing.registerRoute(
+    ({request}) => request.destination === 'image',
+    new workbox.strategies.CacheFirst()
+);

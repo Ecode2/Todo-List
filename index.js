@@ -9,6 +9,8 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+//"standalone",
+
 // Function to add task to json file on submit
 function addTask() {
     // Get task from input tag
